@@ -24,14 +24,62 @@
         .swiper-container{
             overflow: hidden;
         }
+
+
+        .burger-shower {
+          display: none;
+        }
+        
+        .burger-shower:checked ~ .burger-menu {
+          display: block;
+        }
+        
+        .hamburger {
+          display:block;
+          width: 3.4em;
+          height: 2.4em;
+          line-height: .1em;
+          border: .1em solid #ddd;
+          padding: 0 .4em .4em;
+        }
+        
+        .hamburger hr {
+          color: #ddd;
+          height: .1em;
+          border: 0;
+          background: #ddd;
+          /* border: none; */
+        }
+        .nav{
+            position: relative;
+        }
+        .burger-menu {
+           display:none;
+           top: 200%;
+           right: -150%;
+            position: absolute;
+            text-decoration: none;
+            background-color: var(--color-light);
+            padding: 40px;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
+    <div class="header">            
         <div class="logo">Никольский Парк</div>
-        <div class="icons">
-            <!-- <i class="fas fa-search"></i> -->
-            <i class="fas fa-bars"></i>
+        <div class="nav">
+            <input type="checkbox" id="burger-shower" class="burger-shower">
+            <label for="burger-shower" class="hamburger">
+               <hr/>
+               <hr/>
+               <hr/>
+            </label>
+            <ul class="burger-menu">
+                <li class="menu-link"><a href="">ааа</a></li>
+                <li class="menu-link"><a href="">ааа</a></li>
+                <li class="menu-link"><a href="">аааа</a></li>
+                <li class="menu-link"><a href="">ааа</a></li>
+            </ul>
         </div>
     </div>
     <div class="swiper-container">
