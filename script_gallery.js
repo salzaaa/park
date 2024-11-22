@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sliders = {};
 
     function initializeSlider(sliderElement) {
-        const slides = sliderElement.querySelector('.slides');
+        const slides = sliderElement.querySelector('.slider__slides');
         const totalSlides = slides.children.length;
         const sliderId = sliderElement.dataset.sliderId;
 
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
             totalSlides: totalSlides,
             slides: slides
         };
-        const prevButton = sliderElement.querySelector('.prev');
-        const nextButton = sliderElement.querySelector('.next');
+        const prevButton = sliderElement.querySelector('.slider__prev');
+        const nextButton = sliderElement.querySelector('.slider__next');
 
         prevButton.addEventListener('click', () => changeSlide(sliderId, -1));
         nextButton.addEventListener('click', () => changeSlide(sliderId, 1));
@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
         showSlide(sliderId, slider.currentIndex + direction);
     }
     
-
     window.onload = function() {
         const sliderElements = document.querySelectorAll('.slider');
 
@@ -75,20 +74,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    
-});
+    const captions = document.querySelectorAll('.slider__caption');
 
+    captions.forEach(caption => {
+        caption.addEventListener('click', function() {
+            const textDiv = this.nextElementSibling;
 
-const captions = document.querySelectorAll('.caption');
-
-captions.forEach(caption => {
-    caption.addEventListener('click', function() {
-        const textDiv = this.nextElementSibling;
-
-        if (textDiv.style.display === "none" || textDiv.style.display === "") {
-            textDiv.style.display = "flex"; 
-        } else {
-            textDiv.style.display = "none"; 
-        }
+            if (textDiv.style.display === "none" || textDiv.style.display === "") {
+                textDiv.style.display = "flex"; 
+            } else {
+                textDiv.style.display = "none"; 
+            }
+        });
     });
 });
